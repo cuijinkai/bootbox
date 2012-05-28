@@ -71,7 +71,12 @@ var bootbox = window.bootbox || (function() {
             OK      : 'OK',
             CANCEL  : 'Отмена',
             CONFIRM : 'Применить'
-        }
+        },
+	'zh-cn':{
+	    OK      : '确定',
+            CANCEL  : '取消',
+	    CONFIRM : '确定'
+	}
     };
 
     function _translate(str, locale) {
@@ -160,6 +165,7 @@ var bootbox = window.bootbox || (function() {
 
     that.confirm = function(/*str, labelCancel, labelOk, cb*/) {
         var str         = "",
+	    header      = "", 
             labelCancel = _translate('CANCEL'),
             labelOk     = _translate('CONFIRM'),
             cb          = null;
@@ -178,7 +184,7 @@ var bootbox = window.bootbox || (function() {
                 break;
             case 3:
                 str         = arguments[0];
-                labelCancel = arguments[1];
+                header = arguments[1];
                 if (typeof arguments[2] == 'function') {
                     cb = arguments[2];
                 } else {
